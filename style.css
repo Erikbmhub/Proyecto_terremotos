@@ -1,0 +1,24 @@
+main {
+    flex: 1;
+}
+body {
+    display: flex;
+    gap: 20px;
+}
+
+.boxfilter {
+    width: 250px;
+    padding: 20px;
+    margin: 2px;
+    border: 1px solid black;
+}
+
+.boxfilter {
+    width: 250px;
+}
+
+
+#map,
+#map2 {
+    height: 500px;
+}
