@@ -37,10 +37,13 @@ async function getData() {
 
     // Devolvemos los datos para que otra función pueda utilizarlos.
     return data;
-  } catch (error) {
-    // Mostramos el error si falla la petición.
-    console.error("Error en getData:", error);
-  }
+} catch (error) {
+  // Mostramos el error en la consola.
+  console.error("Error en getData:", error);
+
+  // Informamos al usuario de que no se han podido cargar los terremotos.
+  alert("No se pudieron cargar los terremotos del mapa 1.");
+}
 }
 
 //    OBTENCIÓN DE DATOS PARA EL MAPA 2
@@ -72,8 +75,8 @@ async function getData2() {
     if (
       !Number.isFinite(Number(magnitud)) ||
       !Number.isFinite(Number(magnitudMax)) ||
-      Number(magnitud) < -2 ||
-      Number(magnitudMax) < -2
+      Number(magnitud) < 0 ||
+      Number(magnitudMax) < 0
     ) {
       alert("Introduce magnitudes válidas.");
       return;
@@ -172,13 +175,10 @@ function getColor(mag) {
   }
 }
 
-//  FUNCIÓN PARA PINTAR LOS TERREMOTOS EN UN MAPA
-
+// FUNCIÓN PARA PINTAR LOS TERREMOTOS EN UN MAPA
 // Recibe dos argumentos:
 // data: los datos GeoJSON de la API.
 // mapa: el mapa Leaflet donde queremos dibujar los círculos.
-// FUNCIÓN PARA PINTAR LOS TERREMOTOS EN UN MAPA
-
 function paintData(data, mapa) {
   // Comprobamos que existan datos y una lista de terremotos.
   if (!data || !Array.isArray(data.features)) {
@@ -232,12 +232,16 @@ function paintData(data, mapa) {
     popupContent.append(
       document.createTextNode(`Lugar: ${place ?? "No disponible"}`),
     );
+    // Calculamos el radio del círculo según la magnitud.
+    // Establecemos un radio mínimo para los terremotos de menor magnitud.
+    const radius = Math.max(2000, (mag + 2) * 5000);
+
     // Creamos un círculo en las coordenadas del terremoto.
     L.circle(coordinates, {
       color: color,
       fillColor: color,
       fillOpacity: 0.5,
-      radius: 50000,
+      radius: radius,
     })
       // Añadimos la ventana emergente con el contenido creado.
       .bindPopup(popupContent)

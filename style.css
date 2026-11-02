@@ -1,324 +1,387 @@
 /* 1. CONFIGURACIÓN GENERAL */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f1f4f8;
-    color: #263449;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f4f8;
+  color: #263449;
 }
 
 /* 2. ALTURA Y DISTRIBUCIÓN DE LOS MAPAS */
 
 /* Contenedor del mapa y la leyenda */
 .map-layout {
-    display: flex;
-    gap: 20px;
-    align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Altura y distribución de los mapas */
+/* Altura de los mapas en dispositivos móviles */
 #map,
 #map2 {
-    flex: 4;
-    min-width: 0;
-    height: 430px;
+  width: 100%;
+  min-width: 0;
+  height: 350px;
 }
 
 /* 3. LEYENDA DE MAGNITUDES */
 
-/* Contenedor lateral de la leyenda */
+/* Contenedor de la leyenda */
 .map-legend {
-    flex: 1;
-    min-width: 150px;
-    padding: 15px;
-    background-color: #f8fafc;
-    border: 1px solid #d5dce5;
-    border-radius: 8px;
+  width: 100%;
+  padding: 15px;
+  background-color: #f8fafc;
+  border: 1px solid #d5dce5;
+  border-radius: 8px;
 }
 
 /* Título de la leyenda */
 .map-legend h3 {
-    color: #31577f;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
+  color: #31577f;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 /* Lista de intervalos de magnitud */
 .legend-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 /* Cada fila de la leyenda */
 .legend-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #45566c;
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #45566c;
+  font-size: 13px;
 }
 
 /* Círculos que representan los colores */
 .legend-dot {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-    border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
 }
 
 /* Colores de los círculos según la magnitud */
 
 /* Magnitud inferior a 1 */
 .magnitude-0 {
-    background-color: green;
+  background-color: green;
 }
 
 /* Magnitud entre 1 y menos de 2 */
 .magnitude-1 {
-    background-color: rgb(18, 67, 9);
+  background-color: rgb(18, 67, 9);
 }
 
 /* Magnitud entre 2 y menos de 3 */
 .magnitude-2 {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 /* Magnitud entre 3 y menos de 4 */
 .magnitude-3 {
-    background-color: rgb(139, 129, 21);
+  background-color: rgb(139, 129, 21);
 }
 
 /* Magnitud entre 4 y menos de 5 */
 .magnitude-4 {
-    background-color: orange;
+  background-color: orange;
 }
 
 /* Magnitud entre 5 y menos de 6 */
 .magnitude-5 {
-    background-color: red;
+  background-color: red;
 }
 
 /* Magnitud entre 6 y menos de 7 */
 .magnitude-6 {
-    background-color: purple;
+  background-color: purple;
 }
 
 /* Magnitud igual o superior a 7 */
 .magnitude-7 {
-    background-color: black;
+  background-color: black;
 }
 
 /* 3. CABECERA PRINCIPAL */
 
 .site-header {
-    background-color: #172b4d;
-    color: #ffffff;
-    padding: 35px 20px;
+  background-color: #172b4d;
+  color: #ffffff;
+  padding: 25px 15px;
 }
 
 .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .brand {
-    color: #8fb8e8;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+  color: #8fb8e8;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
 .site-header h1 {
-    font-size: 32px;
-    margin: 0 0 10px;
+  font-size: 24px;
+  margin: 0 0 10px;
 }
 
 .header-subtitle {
-    color: #c5d1e0;
-    font-size: 15px;
-    margin: 0;
+  color: #c5d1e0;
+  font-size: 14px;
+  margin: 0;
 }
 
 /* 4. TARJETAS DE LOS MAPAS */
 
-/* =========================================
-   4. TARJETAS DE LOS MAPAS
-========================================= */
-
 .map-card {
-    background-color: #ffffff;
-    width: 94%;
-    max-width: 1500px;
-    padding: 25px;
-    margin: 25px auto;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  width: 100%;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 .map-card h2 {
-    color: #172b4d;
-    font-size: 21px;
-    margin-top: 0;
-    margin-bottom: 20px;
+  color: #172b4d;
+  font-size: 19px;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 /* 5. TARJETA Y DISTRIBUCIÓN DE LOS FILTROS */
 
 .filter-card {
-    background-color: #ffffff;
-    padding: 10px;
-    margin: 25px auto;
-    max-width: 850px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 25px auto;
+  max-width: 850px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* Distribución de los elementos del formulario */
 .filter-card form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 8px;
-    column-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 8px;
+  column-gap: 30px;
 }
 /* Título principal de los filtros */
 .filter-card h2 {
-    color: #172b4d;
-    font-size: 21px;
-    margin-top: 0;
-    margin-bottom: 0;
-    grid-column: 1 / -1;
+  color: #172b4d;
+  font-size: 21px;
+  margin-top: 0;
+  margin-bottom: 0;
+  grid-column: 1 / -1;
 }
 
 /* Grupos de filtros */
 .filter-group {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .filter-group h3 {
-    color: #31577f;
-    font-size: 16px;
-     margin-top: 0;
-    margin-bottom: 15px;
-   
+  color: #31577f;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 /* El botón y el indicador de carga ocupan todo el ancho */
 .filter-button,
 #spinner {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 /*   6. ETIQUETAS Y CAMPOS DEL FORMULARIO  */
 
 .filter-group label {
-    display: block;
-    color: #45566c;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
+  display: block;
+  color: #45566c;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .filter-group input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #d5dce5;
-    border-radius: 7px;
-    background-color: #f8fafc;
-    color: #263449;
-    font-size: 15px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #d5dce5;
+  border-radius: 7px;
+  background-color: #f8fafc;
+  color: #263449;
+  font-size: 15px;
 }
 
 /*  7. BOTÓN DE BÚSQUEDA */
 
 .filter-button {
-    background-color: #245b91;
-    color: #ffffff;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 7px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+  background-color: #245b91;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 /* Efecto al pasar el ratón */
 .filter-button:hover {
-    background-color: #172b4d;
+  background-color: #172b4d;
 }
 
 /* Efecto al pulsar el botón */
 .filter-button:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
-
 
 /* 8. INDICADOR DE CARGA */
 
 /* Contenedor del indicador de carga */
 .loading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 15px;
-    color: #31577f;
-    font-size: 14px;
-    font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  color: #31577f;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* Mantener oculto el indicador cuando tiene el atributo hidden */
 #spinner[hidden] {
-    display: none;
+  display: none;
 }
 
 /* Círculo animado de carga */
 .spinner {
-    width: 35px;
-    height: 35px;
-    border: 4px solid #d5dce5;
-    border-top: 4px solid #245b91;
-    border-radius: 50%;
-    animation: girar 0.8s linear infinite;
+  width: 35px;
+  height: 35px;
+  border: 4px solid #d5dce5;
+  border-top: 4px solid #245b91;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
 }
 
 /* Animación de giro */
 @keyframes girar {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Imagen GIF */
 .loading-container img {
-    width: 120px;
-    max-width: 100%;
-    border-radius: 8px;
+  width: 120px;
+  max-width: 100%;
+  border-radius: 8px;
 }
 
 /* Texto de carga */
 .loading-container p {
-    margin: 0;
+  margin: 0;
 }
 
 /* 9. ESTADO DE LOS CAMPOS AL SELECCIONARLOS */
 
 .filter-group input:focus {
-    outline: none;
-    border-color: #245b91;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(36, 91, 145, 0.12);
+  outline: none;
+  border-color: #245b91;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(36, 91, 145, 0.12);
+}
+
+/* PIE DE PÁGINA */
+
+.site-footer {
+    background-color: #172b4d;
+    color: #c5d1e0;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: 13px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* 10. ADAPTACIÓN PARA TABLETS Y ESCRITORIO */
+
+@media (min-width: 768px) {
+  /* Colocar el mapa y la leyenda en horizontal */
+  .map-layout {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  /* Distribución del mapa y la leyenda */
+  #map,
+  #map2 {
+    flex: 4;
+    min-width: 0;
+    height: 430px;
+  }
+
+  .map-legend {
+    flex: 1;
+    min-width: 150px;
+    width: auto;
+  }
+  /* Mostrar la leyenda en una sola columna */
+  .legend-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Recuperar el tamaño de las tarjetas */
+  .map-card {
+    width: 94%;
+    max-width: 1500px;
+    padding: 25px;
+    margin: 25px auto;
+  }
+
+  /* Recuperar el tamaño de la cabecera */
+  .site-header {
+    padding: 35px 20px;
+  }
+
+  .site-header h1 {
+    font-size: 32px;
+  }
+  /* Tarjeta y formulario de filtros */
+  .filter-card {
+    width: 94%;
+    max-width: 850px;
+    padding: 20px;
+  }
+
+  .filter-card form {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
