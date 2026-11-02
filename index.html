@@ -16,7 +16,6 @@
     ></script>
     <script type="module" src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
-
     <title>Web terremotos</title>
   </head>
   <body>
@@ -28,22 +27,70 @@
         <p class="header-subtitle">Seguimiento de actividad sísmica mundial</p>
       </div>
     </header>
-
     <!-- Contenido principal -->
     <main class="container">
+      <!--  Mapa actual de terremotos -->
       <section class="map-card map-current">
         <h2>Mapa de terremotos actual</h2>
-        <div id="map"></div>
+        <!-- Contenedor del mapa y su leyenda -->
+        <div class="map-layout">
+          <!-- Mapa principal donde se muestran los terremotos actuales -->
+          <div id="map"></div>
+          <!-- Leyenda para identificar los colores según la magnitud -->
+          <aside class="map-legend">
+            <h3>Magnitud</h3>
+            <!-- Lista de intervalos de magnitud y sus colores -->
+            <ul class="legend-list">
+              <!-- Terremotos con magnitud inferior a 1 -->
+              <li>
+                <span class="legend-dot magnitude-0"></span>
+                <span>Menor que 1</span>
+              </li>
+              <!-- Terremotos con magnitud entre 1 y menos de 2 -->
+              <li>
+                <span class="legend-dot magnitude-1"></span>
+                <span>De 1 a menos de 2</span>
+              </li>
+              <!-- Terremotos con magnitud entre 2 y menos de 3 -->
+              <li>
+                <span class="legend-dot magnitude-2"></span>
+                <span>De 2 a menos de 3</span>
+              </li>
+              <!-- Terremotos con magnitud entre 3 y menos de 4 -->
+              <li>
+                <span class="legend-dot magnitude-3"></span>
+                <span>De 3 a menos de 4</span>
+              </li>
+              <!-- Terremotos con magnitud entre 4 y menos de 5 -->
+              <li>
+                <span class="legend-dot magnitude-4"></span>
+                <span>De 4 a menos de 5</span>
+              </li>
+              <!-- Terremotos con magnitud entre 5 y menos de 6 -->
+              <li>
+                <span class="legend-dot magnitude-5"></span>
+                <span>De 5 a menos de 6</span>
+              </li>
+              <!-- Terremotos con magnitud entre 6 y menos de 7 -->
+              <li>
+                <span class="legend-dot magnitude-6"></span>
+                <span>De 6 a menos de 7</span>
+              </li>
+              <!-- Terremotos con magnitud igual o superior a 7 -->
+              <li>
+                <span class="legend-dot magnitude-7"></span>
+                <span>7 o superior</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
       </section>
-
       <section class="filter-card">
         <form id="form-filtros">
           <h2>Filtrar terremotos</h2>
-
           <!-- Filtros de magnitud -->
           <div class="filter-group filter-magnitude">
             <h3>Magnitud</h3>
-
             <label for="magnitud">Magnitud mínima:</label>
             <input
               type="number"
@@ -52,7 +99,6 @@
               placeholder="Ej. 2.5"
               step="0.1"
             />
-
             <label for="magnitud-max">Magnitud máxima:</label>
             <input
               type="number"
@@ -65,10 +111,8 @@
           <!-- Filtros de fechas -->
           <div class="filter-group filter-dates">
             <h3>Periodo de búsqueda</h3>
-
             <label for="fecha-inicio">Fecha inicial:</label>
             <input type="date" id="fecha-inicio" name="fecha-inicio" />
-
             <label for="fecha-fin">Fecha final:</label>
             <input type="date" id="fecha-fin" name="fecha-fin" />
           </div>
@@ -85,9 +129,62 @@
           </div>
         </form>
       </section>
+      <!-- Mapa de terremotos obtenidos mediante los filtros -->
       <section class="map-card map-results">
         <h2>Mapa de terremotos por coordenadas, fecha y magnitud</h2>
-        <div id="map2"></div>
+        <!-- Contenedor del mapa y su leyenda -->
+        <div class="map-layout">
+          <!-- Mapa donde se muestran los terremotos según los filtros seleccionados -->
+          <div id="map2"></div>
+          <!-- Leyenda para identificar los colores según la magnitud -->
+          <aside class="map-legend">
+            <h3>Magnitud</h3>
+            <!-- Lista de intervalos de magnitud y sus colores -->
+            <ul class="legend-list">
+              <!-- Terremotos con magnitud inferior a 1 -->
+              <li>
+                <span class="legend-dot magnitude-0"></span>
+                <span>Menor que 1</span>
+              </li>
+              <!-- Terremotos con magnitud entre 1 y menos de 2 -->
+              <li>
+                <span class="legend-dot magnitude-1"></span>
+                <span>De 1 a menos de 2</span>
+              </li>
+              <!-- Terremotos con magnitud entre 2 y menos de 3 -->
+              <li>
+                <span class="legend-dot magnitude-2"></span>
+                <span>De 2 a menos de 3</span>
+              </li>
+              <!-- Terremotos con magnitud entre 3 y menos de 4 -->
+              <li>
+                <span class="legend-dot magnitude-3"></span>
+                <span>De 3 a menos de 4</span>
+              </li>
+              <!-- Terremotos con magnitud entre 4 y menos de 5 -->
+              <li>
+                <span class="legend-dot magnitude-4"></span>
+                <span>De 4 a menos de 5</span>
+              </li>
+
+              <!-- Terremotos con magnitud entre 5 y menos de 6 -->
+              <li>
+                <span class="legend-dot magnitude-5"></span>
+                <span>De 5 a menos de 6</span>
+              </li>
+              <!-- Terremotos con magnitud entre 6 y menos de 7 -->
+              <li>
+                <span class="legend-dot magnitude-6"></span>
+                <span>De 6 a menos de 7</span>
+              </li>
+              <!-- Terremotos con magnitud igual o superior a 7 -->
+              <li>
+                <span class="legend-dot magnitude-7"></span>
+                <span>7 o superior</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
       </section>
     </main>
   </body>
