@@ -1,7 +1,4 @@
-
-/* =========================================
-   1. CONFIGURACIÓN GENERAL
-========================================= */
+/* 1. CONFIGURACIÓN GENERAL */
 
 * {
     box-sizing: border-box;
@@ -14,20 +11,114 @@ body {
     color: #263449;
 }
 
+/* 2. ALTURA Y DISTRIBUCIÓN DE LOS MAPAS */
 
-/* =========================================
-   2. ALTURA DE LOS MAPAS
-========================================= */
-
-#map,
-#map2 {
-    height: 500px;
+/* Contenedor del mapa y la leyenda */
+.map-layout {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
 }
 
+/* Altura y distribución de los mapas */
+#map,
+#map2 {
+    flex: 4;
+    min-width: 0;
+    height: 430px;
+}
 
-/* =========================================
-   3. CABECERA PRINCIPAL
-========================================= */
+/* 3. LEYENDA DE MAGNITUDES */
+
+/* Contenedor lateral de la leyenda */
+.map-legend {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    background-color: #f8fafc;
+    border: 1px solid #d5dce5;
+    border-radius: 8px;
+}
+
+/* Título de la leyenda */
+.map-legend h3 {
+    color: #31577f;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Lista de intervalos de magnitud */
+.legend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada fila de la leyenda */
+.legend-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #45566c;
+    font-size: 13px;
+}
+
+/* Círculos que representan los colores */
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+/* Colores de los círculos según la magnitud */
+
+/* Magnitud inferior a 1 */
+.magnitude-0 {
+    background-color: green;
+}
+
+/* Magnitud entre 1 y menos de 2 */
+.magnitude-1 {
+    background-color: rgb(18, 67, 9);
+}
+
+/* Magnitud entre 2 y menos de 3 */
+.magnitude-2 {
+    background-color: yellow;
+}
+
+/* Magnitud entre 3 y menos de 4 */
+.magnitude-3 {
+    background-color: rgb(139, 129, 21);
+}
+
+/* Magnitud entre 4 y menos de 5 */
+.magnitude-4 {
+    background-color: orange;
+}
+
+/* Magnitud entre 5 y menos de 6 */
+.magnitude-5 {
+    background-color: red;
+}
+
+/* Magnitud entre 6 y menos de 7 */
+.magnitude-6 {
+    background-color: purple;
+}
+
+/* Magnitud igual o superior a 7 */
+.magnitude-7 {
+    background-color: black;
+}
+
+/* 3. CABECERA PRINCIPAL */
 
 .site-header {
     background-color: #172b4d;
@@ -59,6 +150,7 @@ body {
     margin: 0;
 }
 
+/* 4. TARJETAS DE LOS MAPAS */
 
 /* =========================================
    4. TARJETAS DE LOS MAPAS
@@ -66,9 +158,10 @@ body {
 
 .map-card {
     background-color: #ffffff;
+    width: 94%;
+    max-width: 1500px;
     padding: 25px;
     margin: 25px auto;
-    max-width: 1200px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
@@ -80,14 +173,11 @@ body {
     margin-bottom: 20px;
 }
 
-
-/* =========================================
-   5. TARJETA Y DISTRIBUCIÓN DE LOS FILTROS
-========================================= */
+/* 5. TARJETA Y DISTRIBUCIÓN DE LOS FILTROS */
 
 .filter-card {
     background-color: #ffffff;
-    padding: 25px;
+    padding: 10px;
     margin: 25px auto;
     max-width: 850px;
     border-radius: 12px;
@@ -98,9 +188,9 @@ body {
 .filter-card form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px 30px;
+    row-gap: 8px;
+    column-gap: 30px;
 }
-
 /* Título principal de los filtros */
 .filter-card h2 {
     color: #172b4d;
@@ -118,7 +208,9 @@ body {
 .filter-group h3 {
     color: #31577f;
     font-size: 16px;
+     margin-top: 0;
     margin-bottom: 15px;
+   
 }
 
 /* El botón y el indicador de carga ocupan todo el ancho */
@@ -127,10 +219,7 @@ body {
     grid-column: 1 / -1;
 }
 
-
-/* =========================================
-   6. ETIQUETAS Y CAMPOS DEL FORMULARIO
-========================================= */
+/*   6. ETIQUETAS Y CAMPOS DEL FORMULARIO  */
 
 .filter-group label {
     display: block;
@@ -151,9 +240,7 @@ body {
     font-size: 15px;
 }
 
-/* =========================================
-   7. BOTÓN DE BÚSQUEDA
-========================================= */
+/*  7. BOTÓN DE BÚSQUEDA */
 
 .filter-button {
     background-color: #245b91;
@@ -177,9 +264,8 @@ body {
     transform: translateY(1px);
 }
 
-/* =========================================
-   8. INDICADOR DE CARGA
-========================================= */
+
+/* 8. INDICADOR DE CARGA */
 
 /* Contenedor del indicador de carga */
 .loading-container {
@@ -226,4 +312,13 @@ body {
 /* Texto de carga */
 .loading-container p {
     margin: 0;
+}
+
+/* 9. ESTADO DE LOS CAMPOS AL SELECCIONARLOS */
+
+.filter-group input:focus {
+    outline: none;
+    border-color: #245b91;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(36, 91, 145, 0.12);
 }
